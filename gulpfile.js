@@ -164,6 +164,14 @@ gulp.task('copy:readme', function () {
 });
 
 /**
+ * 9. Copy icons from / to /dist
+ */
+gulp.task('copy:icons', function () {
+  return gulp.src([path.join(srcFolder, 'icons/**/*')])
+    .pipe(gulp.dest(distFolder + '/icons'));
+});
+
+/**
  * 10. Delete /.tmp folder
  */
 gulp.task('clean:tmp', function () {
@@ -188,6 +196,7 @@ gulp.task('compile', function () {
     'copy:build',
     'copy:manifest',
     'copy:readme',
+    'copy:icons',
     'clean:build',
     'clean:tmp',
     function (err) {
